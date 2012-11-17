@@ -1,18 +1,18 @@
-package jp.itacademy.gae_sample.controller;
+package jp.itacademy.gae_sample.controller.user;
 
 import org.slim3.tester.ControllerTestCase;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 
-public class SubtractControllerTest extends ControllerTestCase {
+public class ListControllerTest extends ControllerTestCase {
 
     @Test
     public void run() throws Exception {
-        tester.start("/subtract");
-        SubtractController controller = tester.getController();
+        tester.start("/user/list");
+        ListController controller = tester.getController();
         assertThat(controller, is(notNullValue()));
         assertThat(tester.isRedirect(), is(false));
-        assertThat(tester.getDestinationPath(), is("/subtract.jsp"));
+        assertThat(tester.getDestinationPath(), is("/user/list.jsp"));
     }
 }

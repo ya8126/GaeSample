@@ -1,5 +1,7 @@
 package jp.itacademy.gae_sample.controller.greeting;
 
+
+import org.slim3.controller.validator.Validators;
 import org.slim3.tester.ControllerTestCase;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -15,4 +17,5 @@ public class ReplyControllerTest extends ControllerTestCase {
         assertThat(tester.isRedirect(), is(false));
         assertThat(tester.getDestinationPath(), is("/greeting/reply.jsp"));
     }
-}
+}    
+ 
