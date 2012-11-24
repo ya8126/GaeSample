@@ -28,7 +28,7 @@ public class CreateController extends Controller {
         User user = new User();
         user.setName(name);
         user.setEmail(email);
-        user.setCleateDate(new Date());
+        user.setCreateDate(new Date());
         Datastore.put(user);
         
         return forward("create.jsp");
