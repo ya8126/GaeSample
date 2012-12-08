@@ -7,7 +7,7 @@ import static org.hamcrest.CoreMatchers.*;
 
 public class bookTest extends AppEngineTestCase {
 
-    private book model = new book();
+    private Book model = new Book();
 
     @Test
     public void test() throws Exception {
