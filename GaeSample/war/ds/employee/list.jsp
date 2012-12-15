@@ -22,6 +22,8 @@ th, td{
 		<th>名前</th>
 		<th>入社日</th>
 		<th>月給</th>
+		<th>懲罰回数</th>
+		<th></th>
 	</tr>
 	<c:forEach var="emp" items="${employees}">
 		<tr>
@@ -29,6 +31,8 @@ th, td{
 			<td>${f:h(emp.name) }</td>
 			<td>${emp.hireDate }</td>
 			<td>${emp.salary }円</td>
+			<td>${emp.punishmentCount}回</td>
+			<td><a href="/ds/punish/new?employeeId=${emp.key.id}">懲罰する</a></td>
 		</tr>
 	</c:forEach>		
 </table>

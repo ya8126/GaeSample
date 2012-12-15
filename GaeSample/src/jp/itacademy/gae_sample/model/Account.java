@@ -1,8 +1,6 @@
 package jp.itacademy.gae_sample.model;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
 
 import com.google.appengine.api.datastore.Key;
 
@@ -10,7 +8,7 @@ import org.slim3.datastore.Attribute;
 import org.slim3.datastore.Model;
 
 @Model(schemaVersion = 1)
-public class Employee implements Serializable {
+public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -19,75 +17,28 @@ public class Employee implements Serializable {
 
     @Attribute(version = true)
     private Long version;
+    
+    private int balance;
+    
 
-    private String name;
-    private Date hireDate;
-    private long deptid;
-    private boolean training;
-    private int salary;
-    private List<Long> credentialIds;
-    private int punishmentCount;
-           
-    public int getPunishmentCount() {
-        return punishmentCount;
+    public int getBalance() {
+        return balance;
     }
 
-    public void setPunishmentCount(int punishmentCount) {
-        this.punishmentCount = punishmentCount;
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 
-    public String getName() {
-        return name;
+    public void withdraw(int amount){
+        if (balance < amount){
+            throw new IllegalArgumentException("Žc‚‚ª‚½‚è‚Ü‚¹‚ñ");
+        }
+        balance -= amount;
     }
-
-    public void setName(String name) {
-        this.name = name;
+    
+    public void deposit( int amount){
+        balance += amount;
     }
-
-    public Date getHireDate() {
-        return hireDate;
-    }
-
-    public void setHireDate(Date hireDate) {
-        this.hireDate = hireDate;
-    }
-
-    public long getDeptid() {
-        return deptid;
-    }
-
-    public void setDeptid(long deptid) {
-        this.deptid = deptid;
-    }
-
-    public boolean isTraining() {
-        return training;
-    }
-
-    public void setTraining(boolean training) {
-        this.training = training;
-    }
-
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-
-    public List<Long> getCredentialIds() {
-        return credentialIds;
-    }
-
-    public void setCredentialIds(List<Long> credentialIds) {
-        this.credentialIds = credentialIds;
-    }
-
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
-
     /**
      * Returns the key.
      *
@@ -145,7 +96,7 @@ public class Employee implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        Employee other = (Employee) obj;
+        Account other = (Account) obj;
         if (key == null) {
             if (other.key != null) {
                 return false;
