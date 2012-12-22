@@ -7,5 +7,10 @@
         <property name="deptid" direction="asc"/>
         <property name="salary" direction="asc"/>
     </datastore-index>
+    
+    <datastore-index kind="Todo" ancestor="false" source="auto">
+        <property name="finishDate" direction="asc"/>
+        <property name="createDate" direction="desc"/>
+    </datastore-index>
 
 </datastore-indexes>
