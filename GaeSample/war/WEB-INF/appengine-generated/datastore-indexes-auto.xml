@@ -1,16 +1,4 @@
-<!-- Indices written at Sat, 22 Dec 2012 20:47:37 JST -->
+<!-- Indices written at Sat, 5 Jan 2013 21:17:58 JST -->
 
-<datastore-indexes>
+<datastore-indexes/>
 
-    <!-- Used 9 times in query history -->
-    <datastore-index kind="Employee" ancestor="false" source="auto">
-    <property name="deptid" direction="asc"/>
-    <property name="salary" direction="asc"/>
-    </datastore-index>
-    
-    <datastore-index kind="Todo" ancestor="false" source="auto">
-        <property name="finishDate" direction="asc"/>
-        <property name="createDate" direction="desc"/>
-    </datastore-index>
-
-</datastore-indexes>

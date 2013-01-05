@@ -7,6 +7,7 @@ import java.util.List;
 import com.google.appengine.api.datastore.Key;
 
 import org.slim3.datastore.Attribute;
+import org.slim3.datastore.Datastore;
 import org.slim3.datastore.Model;
 
 @Model(schemaVersion = 1)
@@ -23,6 +24,8 @@ public class Employee implements Serializable {
     private String name;
     private Date hireDate;
     private long deptid;
+    @Attribute(persistent=false)
+    private Dept dept;
     private boolean training;
     private int salary;
     private List<Long> credentialIds;
@@ -52,12 +55,28 @@ public class Employee implements Serializable {
         this.hireDate = hireDate;
     }
 
+    public Key getDeptKey() {
+        return Datastore.createKey(Dept.class, getDeptid());
+    }
+
+    public void setDeptKey(Key deptKey) {
+        this.deptid = deptKey.getId();
+    }
+    
     public long getDeptid() {
         return deptid;
     }
 
     public void setDeptid(long deptid) {
         this.deptid = deptid;
+    }
+    
+    public Dept getDept() {
+        return dept;
+    }
+
+    public void setDept(Dept dept) {
+        this.dept = dept;
     }
 
     public boolean isTraining() {
