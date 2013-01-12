@@ -24,7 +24,7 @@ th, td{
 	</tr>
 	<c:forEach var="employee" items="${employees }">
 		<tr>
-			<td>${employee.key.id}</td>
+			<td><a href="edit?id=${employee.key.id}">${employee.key.id}</a></td>
 			<td>${f:h(employee.name)}</td>
 			<td>${f:h(employee.dept.name)}</td>
 		</tr>
