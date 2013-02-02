@@ -30,3 +30,9 @@
 	<p class="img"><img src="/images/flip?direction=vertical"></p>
 </div>
 
+<div>
+	<p class="caption">合成</p>
+	<p class="img"><img src="/images/composite"></p>
+</div>
+
+
