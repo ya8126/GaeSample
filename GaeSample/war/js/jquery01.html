@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+<meta charset="UTF-8">
+<title>JQuery Samples</title>
+
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script>
+$(function(){
+	$("#changeColorButton").on("click", function(){
+		$("li").css("color", "red");
+	});
+});
+</script>
+</head>
+
+<body>
+
+	<div id="continer">
+		<ul>
+			<li>aaaa</li>
+			<li>bbbb</li>
+			<li>cccc</li>
+		</ul>
+		<button id="changeColorButton">なんか実行</button>
+	</div>
+
+	
+	
+</body>
+
+</html>

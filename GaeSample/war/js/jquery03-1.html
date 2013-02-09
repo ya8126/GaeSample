@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+<meta charset="UTF-8">
+<title>JQuery Samples</title>
+<style>
+	img{
+		width: 200px; 
+	}
+</style>
+</head>
+
+<body>
+	<div id="image-1">
+		<img title="ねこぴーんwithねこ"
+			src="http://edu.happy-kakurembo.com/img/nekobean/with_cat.png" />
+		<p  class="title"></p>
+	</div>
+
+	<div id="image-2">
+		<img title="ねこぴーんzzz"
+			src="http://edu.happy-kakurembo.com/img/nekobean/zzz.png" />
+		<p  class="title"></p>
+	</div>
+	
+	<p><button id="applyButton">実行</button></p>
+
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#applyButton").on("click" , function(){
+				var div = $("#image-1");
+				var title = div.find("img").attr("title");
+				div.find("p.title").text(title);
+			});
+		});
+	</script>	
+	
+</body>
+
+</html>

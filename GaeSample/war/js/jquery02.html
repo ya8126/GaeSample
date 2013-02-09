@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+<meta charset="UTF-8">
+<title>JQuery Samples</title>
+</head>
+
+<body>
+
+	<div id="header">
+		<h1 class="title">けいじばん</h1>
+	</div>
+	
+	<div id="main">
+		<div id="posts">
+			<div class="post">
+				<p class="title">投稿#1</p>
+				<p class="date">2013年01月27日</p>
+				<div class=body>
+					<p>こんばんは</p>
+					<p>月がきれいですね</p>
+				</div>
+			</div>
+			<div class="post latest">
+				<p class="title">投稿#2</p>
+				<p class="date today">2013年01月28日</p>
+				<div class=body>
+					<p>そうですね</p>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+	<form>
+		<p>タイトル<input type="text" name="title" required="required"></p>
+		<p>コメント<textarea name="body"></textarea></p>
+		<p><input type="submit" value="投稿する"></p>
+	</form>
+	
+	<div id="footer">(c) Edu dot</div>
+	<p><button id="applyButton">実行</button></p>
+
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#applyButton").on("click", function(){
+				$(".post").first().css("background-color", "yellow");
+			});
+		});
+	</script>	
+	
+</body>
+
+</html>
