@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+<meta charset="UTF-8">
+<title>JQuery Samples</title>
+<style>
+	body{
+		margin: 8px;
+	}
+	#frame{
+		position: relative;
+		width: 300px;
+		height: 100px;
+		border: solid 1px #999;
+	}
+	#block{
+		border: solid 1px #f00;
+	}
+	#console{
+		margin: 10px 0 0 0;
+		padding: 5px;
+		width: 292px;
+		background-color: #333;
+		color: #ccc;
+		font-family: monospace;
+	}
+	#console p{
+		margin: 0;
+		padding: 2px 0;
+		font-size: 13px;
+	}
+</style>
+</head>
+
+<body>
+	<div id="frame">
+		<div id="block">block</div>
+	</div>
+
+	<div id="console">
+		<p>ここに実行結果を表示する</p>
+	</div>
+			
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script>
+		$(function(){
+			var console = $("#console");
+			var log = function(msg){
+				console.append($("<p>").text(msg));
+			};
+			log("#blockの背景色：" + $("#block").css("border-color"));
+			$("#block").css("background-color", "chocolate");
+			$("#block").css({
+				"border": "solid 5px #138474",
+				"margin": "10px",
+				"padding": "10px",
+				"line-height": "18px"
+			})
+			var width = $("#block").width();
+			var height = $("#block").height();
+			log("width:" + width + ", height:" + height);
+			$("#block").width(100);
+			$("#block").height(30);
+			var innerWidth = $("#block").innerWidth();
+			var innerHeight = $("#block").innerHeight();
+			log("innerwidth:" + innerWidth + ", innerheight:" + innerHeight);		
+			var offset = $("#block").offset();
+			log("offset:" + offset.left + ", " + offset.top);		
+			var position = $("#block").position();
+			log("position:" + position.left + ", " + position.top);				
+		});
+	</script>	
+	
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+<meta charset="UTF-8">
+<title>JQuery Samples</title>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<style>
+	.highlight{
+		background-color: yellow;
+	}
+	.del{
+		text-decoration: line-through;
+	}
+</style>
+	<script>
+		$(function(){
+			$(".chapter p").on("click", function(){
+				$(this).toggleClass("highlight");
+				if ($(this).hasClass("highlight")){
+					alert("ハイライトされています");
+				}else{
+					alert("ハイライトされていません");
+				}
+			});
+			$("#applyButton").on("click", function(){
+				$("#chapter-1 p").first().addClass("highlight del");
+				$("#chapter-1 p").removeClass("highlight");
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div id="chapter-1" class="chapter">
+		<p>ははは</p>
+		<p class="highlight">ひひひ</p>
+		<p>ふふふ</p>
+	</div>	
+
+	<p><button id="applyButton">実行</button></p>
+	
+
+	
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+<meta charset="UTF-8">
+<title>JQuery Samples</title>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<style>
+
+</style>
+<script>
+	$(function(){
+		$("#applyButton").on("click", function(){
+			alert("名前："+$("input[name=name]").val() + "\n" +
+					"職業："+$("select[name=job]").val() + "\n" +					
+					"備考："+$("textarea[name=note]").val() + "\n");
+			$("input[name=name]").val("俺");
+			$("select[name=job]").val("neet");					
+			$("textarea[name=note]").val("まだ本気だしてませんから");
+
+		});
+	});
+</script>
+</head>
+
+<body>
+	<form>
+		<dl>
+			<dt>名前</dt>
+			<dd><input type="text" name="name"></dd>
+			<dt>職業</dt>
+			<dd>
+				<select name="job">
+					<option value="student">学生</option>
+					<option value="none">無職</option>
+					<option value="neet">ニート</option>
+				</select>
+			</dd>
+			<dt>備考</dt>
+			<dd><textarea name="note"></textarea></dd>
+		</dl>
+	</form>
+
+	<p><button id="applyButton">実行</button></p>
+
+</body>
+
+</html>

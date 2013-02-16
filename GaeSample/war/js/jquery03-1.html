@@ -31,9 +31,16 @@
 	<script>
 		$(function(){
 			$("#applyButton").on("click" , function(){
-				var div = $("#image-1");
-				var title = div.find("img").attr("title");
-				div.find("p.title").text(title);
+//				var div = $("#image-1");
+//				var title = div.find("img").attr("title");
+//				div.find("p.title").text(title);
+//				$("img").attr({
+//					src: "http://edu.happy-kakurembo.com/img/nekobean/sad.png",
+//					title: "しくしく"
+//				});
+				$("#image-2 img").removeAttr("title");
+				
+				
 			});
 		});
 	</script>	
