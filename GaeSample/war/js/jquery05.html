@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+<meta charset="UTF-8">
+<title>JQuery Samples</title>
+
+<style>
+	div.section{
+		margin:20px;
+		padding: 5px;
+		width: 270px;
+		border: solid 1px gray;
+	}
+	p{
+		display:inline-block;
+		padding: 5px;
+		margin: 2px;
+		background-color: whitesmoke;
+	}
+	div.wrapper{
+		display:inline-block;
+		padding: 5px;
+		background-color: gold;
+	}
+</style>
+
+</head>
+
+<body>
+	<div>
+		<button id="applyButton">実行</button>
+	</div>
+
+	<div id="numbers" class="section">
+		<p>いち</p>
+		<p>にぃ</p>
+		<p>さん</p>
+	</div>
+	
+	<div id="alphabets" class="section">
+		<p>えぃ</p>
+		<p>びぃ</p>
+		<p>しぃ</p>
+	</div>
+
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#numbers p").css("background-color", "lavender");
+			$("#alphabets p").css("background-color", "lemonchiffon");
+			
+			$("#applyButton").on("click", function(){
+//				$("#numbers").append("<p>にゃぁ</p>");
+//				$("#numbers").append($("#alphabets p").last());	
+//				$("#alphabets p").last().appendTo($("#numbers"));
+//				$("#numbers").prepend("<p>にゃぁ</p>");
+//				$("#numbers").prepend($("#alphabets p").last());
+//				$("#numbers").before("<p>にゃぁ</p>");
+//				$("#numbers").before($("#numbers p").first());
+//				$("#numbers p").first().insertBefore($("#numbers"));
+//				$("#numbers").after("<p>にゃぁ</p>");
+//				$("#numbers").after($("#numbers p").first());
+//				alert($("#numbers p").first().text());
+//				alert($("#numbers").text());
+//				$("#numbers").text("あぼーん");
+//				$("#alphabets").text("<em>あぽーん</em>");
+//				alert($("#numbers").html());
+//				$("#numbers").html("<p>あぼーん</p><p>あぼーん</p>");
+//				$("#alphabets").html("<em>あぽーん</em>");
+//				$("#numbers p").replaceWith("<p>にゃぁ</p>");
+//				$("#numbers p").wrap("<div class='wrapper' />");
+//				$("#numbers p").wrapAll("<div class='wrapper' />");
+//				$("#numbers p:not(:eq(1))").wrapAll("<div class='wrapper' />");
+//				$("#numbers").wrapInner("<div class='wrapper' />");
+//				$("#numbers p").unwrap();  //pの親ｄｉｖが消える
+//				$("#numbers").empty();
+//				$("#numbers").remove();
+//				$("#numbers").remove().insertAfter($("#alphabets"));
+//				$("<style>").text("#p1 {color:red;}").appendTo($("head"));
+				alert($("#numbers").html());
+				
+			});
+		});
+	</script>	
+	
+</body>
+</html>
