@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AjaxでHTML読み込み</title>
+<style>
+#contents {
+	width: 350px;
+	border: solid 1px #999;
+	padding: 10px;
+}
+
+.fragment p {
+	margin: 5px 0;
+}
+</style>
+
+</head>
+<body>
+	<div id="contents"></div>
+
+	<div id="control">
+		<button id="loadButton">読み込み</button>
+	</div>
+
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script>
+		$(function() {
+			$("#loadButton").on("click", function() {
+				$.ajax({
+					url : "http://c.happy-kakurembo.com/res/fragment.html",
+					type : "GET",
+					dataType : "html"
+				}).done(function(res) {
+					$("#contents").html(res);
+				});
+			});
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>郵便番号で住所検索</title>
+<style>
+p {
+	margin: 3px;
+	padding: 0;
+}
+
+p.desc{
+	margin: 10px 0;
+}
+
+.label{
+	display: inline-block;
+	width: 40px;
+}
+</style>
+
+</head>
+<body>
+	<p class="desc">郵便番号を入力してみよう</p>
+	<p>
+	<span class="label">〒</span>
+	<input type="text" id="zipcode1" name"zipcode1" size="3" maxlength="3">
+	<span>-</span>
+	<input type="text" id="zipcode2" name"zipcode2" size="4" maxlength="4">
+	</p>
+	<p>
+	<span class="label">住所</span>
+	<input type="text" id="ａｄｄｒｅｓｓ" name"address" size="40">
+	</p>
+	
+	
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script>
+		$(function() {
+			var lookup = function(){
+				var z1 =$("#zipcode1").val();
+				var z2 =$("#zipcode2").val();
+				if (!z1.match(/^\d{3}$/) || !z2.match(/^\d{4}$/)){
+					return;
+				}
+			}
+			$.ajax({
+				url : "http://api.aoikujira.com/zip/json/" + z1 + z2,
+				type : "GET",
+				dataType : "json"
+			}).done(function(res) {
+					$("#address").val(res.state + res.city + res.address);
+			});
+			
+			$("#zipcode1").on("keyup", lookup);
+			$("#zipcode2").on("keyup", lookup);					
+		});
+	</script>
+
+</body>
+</html>

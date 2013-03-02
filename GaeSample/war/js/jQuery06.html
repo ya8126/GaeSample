@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>sample</title>
+<style>
+#cart li {
+	padding: 3px 0;
+}
+
+#cart li.highlight {
+	background-color: lemonchiffon;
+}
+
+#cart li.deleteButton {
+	padding: 0 0 0 6px;
+}
+</style>
+
+</head>
+<body>
+	<div>
+		<select name="category">
+			<option value="foods">食品</option>
+			<option value="sweets">スイーツ</option>
+			<option value="alcohols">お酒</option>
+		</select> <select name="item">
+			<option value="ongiri">おにぎり</option>
+			<option value="anpan">あんぱん</option>
+			<option value="potechi">ポテチ</option>
+		</select>
+
+		<button id="addToCartButton">カートに追加</button>
+	</div>
+
+	<ul id="cart">
+	</ul>
+
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script>
+		$(function() {
+			$("#addToCartButton").on("click", function() {
+				var itemName = $("select[name=item] option:selected").text();
+				$("#cart").append("<li>" + itemName + "<a href='#' class='deleteButton'>削除</a></li>");
+			});
+
+			var categories = {
+				"foods" : [ "おにぎり", "あんぱん", "ポテチ" ],
+				"sweets" : [ "ケーキ", "タルト", "ワッフル" ],
+				"alcohols" : [ "ビール", "ワイン", "焼酎" ]
+			};
+
+			$("select[name=category]").on("change", function(e) {
+				var itemSelect = $("select[name=item]");
+				itemSelect.empty();
+				var items = categories[$(this).val()];
+				for ( var i = 0; i < items.length; i++) {
+					itemSelect.append("<option>" + items[i] + "</option>");
+				}
+			});
+			
+			$("#cart").on("mouseenter", "li", function(){
+				$(this).addClass("highlight");				
+			});
+			$("#cart").on("mouseleave", "li", function(){
+				$(this).removeClass("highlight");				
+			});
+			
+			$("#cart").on("click", "a.deleteButton", function(){
+				$(this).parent().remove();
+				return false;
+			});
+
+		});
+	</script>
+
+</body>
+</html>
