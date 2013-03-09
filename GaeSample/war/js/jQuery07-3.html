@@ -2,21 +2,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>郵便番号で住所検索</title>
+<title>Ajax掲示板</title>
 <style>
+body{
+	width: 350px;
+}
 p {
-	margin: 3px;
+	margin: 0;
 	padding: 0;
 }
 
-p.desc{
-	margin: 10px 0;
+#messages{
+	margin-bottom: 20px;
 }
 
-.label{
-	display: inline-block;
-	width: 40px;
+.message{
+	padding: 10px 0;
+	border-bottom: dashed 1px #999;
+	font-size: 13px
 }
+*******************ここから
 </style>
 
 </head>
@@ -43,19 +48,13 @@ p.desc{
 				if (!z1.match(/^\d{3}$/) || !z2.match(/^\d{4}$/)){
 					return;
 				}
-/*				$.ajax({
+				$.ajax({
 					url : "http://api.aoikujira.com/zip/json/" + z1 + z2,
 					type : "GET",
 					dataType : "json"
 				}).done(function(res) {
 					$("#address").val(res.state + res.city + res.address);
 				});
-*/
-				$.getJSON("http://api.aoikujira.com/zip/json/" + z1 + z2, 
-						function(res) {
-							$("#address").val(res.state + res.city + res.address);
-						}
-				);
 			};
 			
 			$("#zipcode1").on("keyup", lookup);
